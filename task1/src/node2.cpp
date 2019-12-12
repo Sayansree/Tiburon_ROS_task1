@@ -6,7 +6,7 @@ ros::Publisher ch2;
 void recv(const std_msgs::Int32 msg)
 {
   ROS_INFO("received: %d", msg->data);
-  std_msgs::Int64 n;
+  std_msgs::Int32 n;
   n.data = (msg->data)*(msg->data);
   ROS_INFO("sent: %d", n.data);
   ch2.publish(n);
