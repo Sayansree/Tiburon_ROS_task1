@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include "std_msgs/Int32.h"
 
-void recv(const std_msgs:Int32)
+void recv(const std_msgs:Int32 msg)
 {
   ROS_INFO("received: %d", msg->data);
 }
