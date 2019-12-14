@@ -6,21 +6,21 @@
  image_transport::Publisher pub;
 void imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {
-    int k=-1;
+    int key=-1;
     cv::Mat frame;
   try
   {
     frame = cv_bridge::toCvShare(msg, "bgr8")->image
     cv::imshow("n2",frame );
-    k=cv::waitKey(1)&&0xff;
+    key=cv::waitKey(1)&&0xff;
   }
   catch (cv_bridge::Exception& e)
   {
     ROS_ERROR("Could not convert from '%s' to 'bgr8'.", msg->encoding.c_str());
     return;
   }
-    if(key==27 or key==13):
-            break
+    if(key==27 ||key==13||key=='e')
+            ros::shutdown();
     else if(key=='s')
             cv::imwrite( "output.jpg", frame );
     else if (key=='p'):
@@ -37,6 +37,6 @@ int main(int argc, char **argv)
   cv::namedWindow("n2");
   cv::startWindowThread();
   ros::spin();
-  cv::destroyAllWindow();
+  cv::destroyAllWindows();
   return 0;
 }
