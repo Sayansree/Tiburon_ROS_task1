@@ -20,10 +20,10 @@ int main(int argc, char** argv)
   cv::Mat frame;
   sensor_msgs::ImagePtr msg;
 
-  while (nh.ok()) {
+  while (n.ok()) {
     cap >> frame;
     if(!frame.empty()) {
-        cv::imshow("n1", cv_bridge::toCvShare(msg, "bgr8")->image);
+        cv::imshow("n1", frame);
         msg= cv_bridge::CvImage(std_msgs::Header(), "bgr8", frame).toImageMsg();
         pub.publish(msg);
         cv::waitKey(1);
@@ -31,6 +31,6 @@ int main(int argc, char** argv)
     ros::spinOnce();
     loop_rate.sleep();
   }
-  cv::destroyAllWindow();
+  cv::destroyAllWindows();
   return 0;
 }
