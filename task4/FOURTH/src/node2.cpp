@@ -10,13 +10,13 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
   try
   {
     frame = cv_bridge::toCvShare(msg, "bgr8")->image;
-    ccv::Scalar minBGR = cv::Scalar(Bmin,Gmin,Rmin) ;
+    cv::Scalar minBGR = cv::Scalar(Bmin,Gmin,Rmin) ;
     cv::Scalar maxBGR = cv::Scalar(Bmax,Gmax,Rmax) ;
   
     cv::inRange(frame, minBGR, maxBGR, mask);
-    cv::bitwise_and(frame, brightBGR, output, mask);
+    cv::bitwise_and(frame, frame, output, mask);
     cv::imshow("n2",output );
-    key=cv::waitKey(10)&&0xff;
+    key=cv::waitKey(10)&0xff;
   }
   catch (cv_bridge::Exception& e)
   {
