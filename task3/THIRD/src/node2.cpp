@@ -12,7 +12,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
   {
     frame = cv_bridge::toCvShare(msg, "bgr8")->image
     cv::imshow("n2",frame );
-    key=cv::waitKey(1)&&0xff;
+    key=cv::waitKey(1)&0xff;
   }
   catch (cv_bridge::Exception& e)
   {
