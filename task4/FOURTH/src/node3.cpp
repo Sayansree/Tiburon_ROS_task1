@@ -14,9 +14,9 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
     cv::Scalar maxHSV = cv::Scalar(Hmax,Smax,Vmax); 
   
     cv::inRange(HSV, minHSV, maxHSV, mask);
-    cv::bitwise_and(frame, brightHSV, output, mask);
-    cv::imshow("n2",output );
-    key=cv::waitKey(10)&&0xff;
+    cv::bitwise_and(frame, frame, output, mask);
+    cv::imshow("n3",output );
+    key=cv::waitKey(10)&0xff;
   }
   catch (cv_bridge::Exception& e)
   {
