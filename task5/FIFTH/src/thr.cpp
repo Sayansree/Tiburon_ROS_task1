@@ -15,13 +15,13 @@ int main(int argc, char ** argv )
 {
    Mat src, HSV, dst, mask;
    namedWindow( "threshold", WINDOW_AUTOSIZE );
-   createTrackbar( "H min","n3", &Hmin,180, ch );
-   createTrackbar( "H max","n3", &Hmax,180, ch );
-   createTrackbar( "S min","n3", &Smin,255, ch );
-   createTrackbar( "S max","n3", &Smax,255, ch );
-   createTrackbar( "V min","n3", &Vmin,255, ch );
-   createTrackbar( "V max","n3", &Vmax,255, ch );
-   ch(0,0);
+   //createTrackbar( "H min","n3", &Hmin,180, ch );
+   //createTrackbar( "H max","n3", &Hmax,180, ch );
+   //createTrackbar( "S min","n3", &Smin,255, ch );
+   //createTrackbar( "S max","n3", &Smax,255, ch );
+  //createTrackbar( "V min","n3", &Vmin,255, ch );
+   //createTrackbar( "V max","n3", &Vmax,255, ch );
+   //ch(0,0);
    Hmin=20;Smin=80;Vmin=130;
    Hmax=39;Smax=255;Vmax=255;
    VideoCapture cap("robosub_path-1.mp4");
