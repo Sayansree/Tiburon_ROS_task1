@@ -35,7 +35,7 @@ int main(int argc, char ** argv )
   	Hmax=30;Smax=85;Vmax=210;
 	k=90;s=86;d=56; tre =18;
 	
-   	VideoCapture cap("/home/sayansree/catkin_ws/src/ross/src/gate.avi");
+   	VideoCapture cap("gate.avi");
 	int frame_width = cap.get(CV_CAP_PROP_FRAME_WIDTH); 
   	int frame_height = cap.get(CV_CAP_PROP_FRAME_HEIGHT); 
 	VideoWriter video("output.avi",CV_FOURCC('M','J','P','G'),10, Size(frame_width,frame_height));
@@ -115,7 +115,7 @@ while(cap.isOpened())
 	
         imshow( "HSV", HSV);
 	imshow( "BGR",src);    
-	video.write(HSV);	
+	video.write(src);	
         if((waitKey(10)&0xff)==13)break;
     }
     }
